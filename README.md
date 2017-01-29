@@ -1,2 +1,2 @@
 # Ashish-Kumar-Sah
-Fresher
+B.Tech(CSE) Fresher
