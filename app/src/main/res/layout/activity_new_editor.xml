@@ -21,21 +21,23 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/rv_new_editor"
         android:layout_alignParentRight="true"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/add"
-            style="@style/btn_style"
-            android:layout_width="match_parent"
-            android:text="Add"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
 
         <Button
             android:id="@+id/nea_submit"
             style="@style/btn_style"
-            android:layout_width="match_parent"
+            android:layout_width="198dp"
             android:text="Submit" />
+
+        <Button
+            android:id="@+id/add"
+            style="@style/btn_style"
+            android:layout_width="190dp"
+            android:text="Add" />
 
     </LinearLayout>
 
 </RelativeLayout>
+
+
