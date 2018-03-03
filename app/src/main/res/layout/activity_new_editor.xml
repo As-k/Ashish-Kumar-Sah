@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cioc.report.NewEditorActivity">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_new_editor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:id="@+id/email_login_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/rv_new_editor"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/add"
+            style="@style/btn_style"
+            android:layout_width="match_parent"
+            android:text="Add"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
+
+        <Button
+            android:id="@+id/nea_submit"
+            style="@style/btn_style"
+            android:layout_width="match_parent"
+            android:text="Submit" />
+
+    </LinearLayout>
+
+</RelativeLayout>
