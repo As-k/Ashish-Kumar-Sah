@@ -27,13 +27,15 @@
         <Button
             android:id="@+id/nea_submit"
             style="@style/btn_style"
-            android:layout_width="198dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:text="Submit" />
 
         <Button
             android:id="@+id/add"
             style="@style/btn_style"
-            android:layout_width="190dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:text="Add" />
 
     </LinearLayout>
