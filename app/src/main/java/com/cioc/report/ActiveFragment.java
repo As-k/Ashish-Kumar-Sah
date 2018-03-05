@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +24,7 @@ public class ActiveFragment extends Fragment {
     ActiveAdapter activeAdapter;
     public static FloatingActionButton fab;
     RecyclerView rv_active;
+    ArrayList arrayList;
 
     public ActiveFragment() {
         // Required empty public constructor
@@ -35,6 +38,7 @@ public class ActiveFragment extends Fragment {
         View v1 = inflater.inflate(R.layout.fragment_active, container, false);
         fab = v1.findViewById(R.id.fab);
         fabActoin();
+        arrayList = new ArrayList();
 
         rv_active = v1.findViewById(R.id.rv_active);
         rv_active.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -57,13 +61,24 @@ public class ActiveFragment extends Fragment {
     }
 
     public void rvActiveClick(){
-        rv_active.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int itemPosition = rv_active.getChildAdapterPosition(v);
-                Toast.makeText(getActivity(), ""+itemPosition, Toast.LENGTH_SHORT).show();
-            }
-        });
+        rv_active.addOnItemTouchListener(
+                new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        // TODO Handle item click
+                        Toast.makeText(getContext(), ""+position, Toast.LENGTH_SHORT).show();
+//                        String itemPosition = (String) arrayList.get(position);
+
+                        String state = ActiveAdapter.state_names[position];
+                        String amount = ActiveAdapter.price_amount[position];
+                        String date = ActiveAdapter.c_date[position];
+                        Intent intent = new Intent(getActivity(),ViewActivity.class);
+                        intent.putExtra("state",state);
+                        intent.putExtra("amount",amount);
+                        intent.putExtra("date",date);
+                        startActivity(intent);
+                    }
+                })
+        );
     }
 
 }

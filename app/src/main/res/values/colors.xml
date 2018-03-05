@@ -10,7 +10,7 @@
     <color name="pink">#e913a2</color>
 
     <color name="project_color">#ffffff</color>
-    <color name="text_color">#1e9fea</color>
+    <color name="text_color">#000000</color>
     <color name="btn_text_color">#ffffff</color>
 
 </resources>
