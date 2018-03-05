@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 public class ActiveAdapter extends RecyclerView.Adapter<ActiveAdapter.MyHolder> {//implements View.OnClickListener
 
-    String state_names[] = {"Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh","Delhi", "Goa","Gujarat","Haryana","Himachal Pradesh"};
-    String price_amount[] = {"1505/-", "2000/-", "45000/-", "4512/-", "1345/-","58454/-", "4521/-","7845/-","2154/-","2145/-"};
-    String c_date[] = {"03-March-2018", "03-March-2018", "02-March-2018", "02-March-2018", "02-March-2018","02-March-2018", "02-March-2018","01-March-2018","01-March-2018","01-March-2018"};
+    public static String state_names[] = {"Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh","Delhi", "Goa","Gujarat","Haryana","Himachal Pradesh"};
+    public static String price_amount[] = {"1505/-", "2000/-", "45000/-", "4512/-", "1345/-","58454/-", "4521/-","7845/-","2154/-","2145/-"};
+    public static String c_date[] = {"03-March-2018", "03-March-2018", "02-March-2018", "02-March-2018", "02-March-2018","02-March-2018", "02-March-2018","01-March-2018","01-March-2018","01-March-2018"};
 
     Context context;
     RecyclerView recyclerView;
@@ -47,11 +47,6 @@ public class ActiveAdapter extends RecyclerView.Adapter<ActiveAdapter.MyHolder> 
         return state_names.length;
     }
 
-//    @Override
-//    public void onClick(View v) {
-//        int itemPosition = recyclerView.getChildLayoutPosition(v);
-//        Toast.makeText(context, itemPosition, Toast.LENGTH_LONG).show();
-//    }
 
     public static class MyHolder extends RecyclerView.ViewHolder{
         TextView tv_vendor, tv_amount, tv_date;

@@ -66,11 +66,15 @@ public class ActiveFragment extends Fragment {
                     @Override public void onItemClick(View view, int position) {
                         // TODO Handle item click
                         Toast.makeText(getContext(), ""+position, Toast.LENGTH_SHORT).show();
-                        String itemPosition = (String) arrayList.get(position);
+//                        String itemPosition = (String) arrayList.get(position);
 
-                        String item = view.toString();
+                        String state = ActiveAdapter.state_names[position];
+                        String amount = ActiveAdapter.price_amount[position];
+                        String date = ActiveAdapter.c_date[position];
                         Intent intent = new Intent(getActivity(),ViewActivity.class);
-                        intent.putExtra("name",item);
+                        intent.putExtra("state",state);
+                        intent.putExtra("amount",amount);
+                        intent.putExtra("date",date);
                         startActivity(intent);
                     }
                 })

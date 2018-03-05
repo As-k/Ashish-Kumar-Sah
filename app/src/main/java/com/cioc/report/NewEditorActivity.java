@@ -7,17 +7,29 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class NewEditorActivity extends Activity {
 
     Button add, neaSubmit;
     RecyclerView rv_new_editor;
     NEAdapter neAdapter;
+    public static String categories, vendor, date,amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_editor);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            categories = bundle.getString("categories");
+            vendor = bundle.getString("vendor");
+            date = bundle.getString("date");
+            amount = bundle.getString("amount");
+            TextView tv = findViewById(R.id.tv_new);
+            tv.setText(categories+"\n"+vendor+"\n"+date+"\n"+amount);
+        }
 
         rv_new_editor = findViewById(R.id.rv_new_editor);
         rv_new_editor.setLayoutManager(new LinearLayoutManager(this));

@@ -58,11 +58,11 @@ public class DetailsActivity extends Activity {
     EditText date;
     int c_yr, c_month, c_day;
 
-    Button submit;
+    Button save_details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_ACTION_BAR);
+//        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
@@ -84,6 +84,8 @@ public class DetailsActivity extends Activity {
         mRecyclerView.scrollToPosition(position);
 
         findAllId();
+        save_details = findViewById(R.id.save_details);
+
         Calendar c = Calendar.getInstance();
         c_yr = c.get(Calendar.YEAR);
         c_month = c.get(Calendar.MONTH);
@@ -104,7 +106,8 @@ public class DetailsActivity extends Activity {
         amount = findViewById(R.id.amount);
         date = findViewById(R.id.date);
 
-        submit = findViewById(R.id.save);
+
+
     }
 
     private void clickOnView(){
@@ -168,16 +171,44 @@ public class DetailsActivity extends Activity {
                 dpd.show();
             }
         });
-
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DetailsActivity.this,NewEditorActivity.class));
-                finish();
-            }
-        });
-
     }
+
+    public void saveDetails(View v){
+        String category = categories.getText().toString().trim();
+        String vendor_name = vendor.getText().toString().trim();
+        String c_date = date.getText().toString().trim();
+        String amount_price = amount.getText().toString().trim();
+        if (category.isEmpty()){
+            categories.setError("Error");
+            categories.requestFocus();
+        } else {
+            if (vendor_name.isEmpty()){
+                vendor.setError("Error");
+                vendor.requestFocus();
+            } else {
+                if (c_date.isEmpty()){
+                    date.setError("Error");
+                    date.requestFocus();
+                } else {
+                    if (amount_price.isEmpty()){
+                        amount.setError("Error");
+                        amount.requestFocus();
+                    } else {
+                        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(DetailsActivity.this, NewEditorActivity.class);
+                        i.putExtra("categories",category);
+                        i.putExtra("vendor",vendor_name);
+                        i.putExtra("date",c_date);
+                        i.putExtra("amount",amount_price);
+                        startActivity(i);
+                        finish();
+                    }
+                }
+            }
+        }
+    }
+
+
 
 
     @Override
