@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.cioc.report.NewEditorActivity">
 
-    <TextView
-        android:id="@+id/tv_new"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="New Editor"
-        android:textStyle="bold"
-        android:textColor="#123"/>
+    <!--<TextView-->
+        <!--android:id="@+id/tv_new"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:text="New Editor"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="#123"/>-->
 
 
     <android.support.v7.widget.RecyclerView

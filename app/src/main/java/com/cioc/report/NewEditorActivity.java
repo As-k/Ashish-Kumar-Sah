@@ -9,27 +9,42 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class NewEditorActivity extends Activity {
 
     Button add, neaSubmit;
     RecyclerView rv_new_editor;
     NEAdapter neAdapter;
-//    public static String categories, vendor, date,amount;
+    public static ArrayList arrayList;
+    String from[] = {"categories", "vendor","date", "amount"};
+    public static String categories, vendor, date,amount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_editor);
 
-//        Bundle bundle = getIntent().getExtras();
-//        if (bundle != null){
-//            categories = bundle.getString("categories");
-//            vendor = bundle.getString("vendor");
-//            date = bundle.getString("date");
-//            amount = bundle.getString("amount");
+        arrayList = new ArrayList();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            categories = bundle.getString("categories");
+            vendor = bundle.getString("vendor");
+            date = bundle.getString("date");
+            amount = bundle.getString("amount");
+
+            HashMap hm = new HashMap();
+            hm.put(from[0],categories);
+            hm.put(from[1],vendor);
+            hm.put(from[2],date);
+            hm.put(from[3],amount);
+            arrayList.add(hm);
 //            TextView tv = findViewById(R.id.tv_new);
 //            tv.setText(categories+"\n"+vendor+"\n"+date+"\n"+amount);
-//        }
+        }
 
         rv_new_editor = findViewById(R.id.rv_new_editor);
         rv_new_editor.setLayoutManager(new LinearLayoutManager(this));

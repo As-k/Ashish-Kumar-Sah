@@ -30,6 +30,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,16 +44,13 @@ public class DetailsActivity extends Activity {
     private List<String> listOfImagesPath;
     private RecyclerView.Adapter mAdapter;
     private LinearLayoutManager mLayoutManager;
-    private ArrayList imagesList;
+    public static ArrayList imagesList;
 
     Integer REQUEST_CODE_DOC = 101;
     public static final int CAMERA_REQUEST = 102;
     private int REQUEST_CODE_GALLERY = 103;
-    private String[] items = {"Camera", "Select a file"};
-//    ImageView imageView;
-    ImageButton gallery;
-    ImageButton camera;
-    ImageButton uploadfile ;
+    ImageButton uploadfile, camera, gallery;
+    public static Bitmap bitmapUploadfile, bitmapCamera, bitmapGallery;
 
     AutoCompleteTextView categories, vendor, amount;
     EditText date;
@@ -62,13 +60,20 @@ public class DetailsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
         mRecyclerView = findViewById(R.id.recycler_view);
-        final Integer[] images = {R.drawable.bag2, R.drawable.bag3, R.drawable.bag5};
+        Integer[] images = {R.drawable.bag2, R.drawable.bag3, R.drawable.bag5};
         imagesList = new ArrayList(Arrays.asList(images));
+
+//        if (bitmapCamera != null) {
+//            ByteArrayOutputStream bout = new ByteArrayOutputStream();
+//            bitmapCamera.compress(Bitmap.CompressFormat.JPEG,100,bout);
+//            byte image[] = bout.toByteArray();
+//            imagesList.add(image);
+//        }
+
 
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -105,9 +110,6 @@ public class DetailsActivity extends Activity {
         vendor = findViewById(R.id.vendor);
         amount = findViewById(R.id.amount);
         date = findViewById(R.id.date);
-
-
-
     }
 
     private void clickOnView(){
@@ -122,8 +124,7 @@ public class DetailsActivity extends Activity {
 
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Intent i = new Intent();
                 i.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(i,CAMERA_REQUEST);
@@ -214,13 +215,6 @@ public class DetailsActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show();
-//            imageView.setImageBitmap(bitmap);
-            }
-        }
 
         if (requestCode == REQUEST_CODE_DOC) {
             if(resultCode == RESULT_OK){
@@ -229,10 +223,18 @@ public class DetailsActivity extends Activity {
             }
         }
 
+        if (requestCode == CAMERA_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                bitmapCamera = (Bitmap) data.getExtras().get("data");
+                Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show();
+//            imageView.setImageBitmap(bitmap);
+            }
+        }
+
         if (requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
             try{
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
+                bitmapGallery = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
                 Toast.makeText(this, "Ok", Toast.LENGTH_SHORT).show();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

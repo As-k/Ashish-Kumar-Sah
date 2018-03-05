@@ -20,19 +20,19 @@
             />
     </LinearLayout>
 
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/view_rv">-->
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_rv">
 
-    <!--</android.support.v7.widget.RecyclerView>-->
+    </android.support.v7.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/text_view_style"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="211dp"
-        android:text="TextView" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView"-->
+        <!--style="@style/text_view_style"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="211dp"-->
+        <!--android:text="TextView" />-->
 
 </RelativeLayout>

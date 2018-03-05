@@ -18,7 +18,7 @@ public class NEAdapter  extends RecyclerView.Adapter<NEAdapter.MyHolder> {
 
     Context context;
 //    ArrayList arrayList;
-//    String from[] = {"categories", "vendor","date", "amount"};
+    String from[] = {"categories", "vendor","date", "amount"};
 
     public NEAdapter(Context context) {
         this.context = context;
@@ -45,15 +45,20 @@ public class NEAdapter  extends RecyclerView.Adapter<NEAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(NEAdapter.MyHolder holder, int position) {
-//        holder.nea_tv_categories.setText(from[position]);
-//        holder.nea_tv_vendor.setText(from[position]);
-//        holder.nea_tv_date.setText(from[position]);
-//        holder.nea_tv_amount.setText(from[position]);
+        HashMap hm = (HashMap) NewEditorActivity.arrayList.get(position);
+        String categories = (String) hm.get(from[0]);
+        String vendor = (String) hm.get(from[1]);
+        String date = (String) hm.get(from[2]);
+        String amount = (String) hm.get(from[3]);
+        holder.nea_tv_categories.setText(categories);
+        holder.nea_tv_vendor.setText(vendor);
+        holder.nea_tv_date.setText(date);
+        holder.nea_tv_amount.setText(amount);
     }
 
     @Override
     public int getItemCount() {
-        return 0; //arrayList.size();
+        return  NewEditorActivity.arrayList.size();
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder {

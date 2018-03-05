@@ -12,7 +12,7 @@
     card_view:contentPadding="5dp">
 
     <RelativeLayout
-        android:id="@+id/rl"
+        android:id="@+id/rl_cardAdapter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="3dp">
@@ -21,9 +21,8 @@
             android:id="@+id/card_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:layout_margin="2dp"
-            android:gravity="center"
+            android:src="@drawable/bag4"
             android:padding="10dp"/>
 
         <ImageButton
