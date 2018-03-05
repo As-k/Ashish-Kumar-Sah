@@ -17,8 +17,8 @@ import java.util.HashMap;
 public class NEAdapter  extends RecyclerView.Adapter<NEAdapter.MyHolder> {
 
     Context context;
-    ArrayList arrayList;
-    String from[] = {"categories", "vendor","date", "amount"};
+//    ArrayList arrayList;
+//    String from[] = {"categories", "vendor","date", "amount"};
 
     public NEAdapter(Context context) {
         this.context = context;
@@ -28,32 +28,32 @@ public class NEAdapter  extends RecyclerView.Adapter<NEAdapter.MyHolder> {
     public NEAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = layoutInflater.inflate(R.layout.recylerview_nea_style, parent, false);
-        arrayList = new ArrayList();
-        String categories = NewEditorActivity.categories;
-        String vendor = NewEditorActivity.vendor;
-        String date = NewEditorActivity.date;
-        String amount = NewEditorActivity.amount;
-        HashMap hm = new HashMap();
-        hm.put(from[0],categories);
-        hm.put(from[1],vendor);
-        hm.put(from[2],date);
-        hm.put(from[3],amount);
-        arrayList.add(hm);
+//        arrayList = new ArrayList();
+//        String categories = NewEditorActivity.categories;
+//        String vendor = NewEditorActivity.vendor;
+//        String date = NewEditorActivity.date;
+//        String amount = NewEditorActivity.amount;
+//        HashMap hm = new HashMap();
+//        hm.put(from[0],categories);
+//        hm.put(from[1],vendor);
+//        hm.put(from[2],date);
+//        hm.put(from[3],amount);
+//        arrayList.add(hm);
         NEAdapter.MyHolder mh = new NEAdapter.MyHolder(v);
         return mh;
     }
 
     @Override
     public void onBindViewHolder(NEAdapter.MyHolder holder, int position) {
-        holder.nea_tv_categories.setText(from[position]);
-        holder.nea_tv_vendor.setText(from[position]);
-        holder.nea_tv_date.setText(from[position]);
-        holder.nea_tv_amount.setText(from[position]);
+//        holder.nea_tv_categories.setText(from[position]);
+//        holder.nea_tv_vendor.setText(from[position]);
+//        holder.nea_tv_date.setText(from[position]);
+//        holder.nea_tv_amount.setText(from[position]);
     }
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return 0; //arrayList.size();
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder {
