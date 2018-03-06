@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.cioc.report.ViewActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-        <Button
-            android:id="@+id/view_revoke"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            style="@style/btn_style"
-            android:text="Revoke"
-            />
-    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/view_rv">
 
     </android.support.v7.widget.RecyclerView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/view_revoke"
+            android:layout_width="match_parent"
+            style="@style/btn_style"
+            android:text="Revoke"
+            />
+    </RelativeLayout>
     <!--<TextView-->
         <!--android:id="@+id/textView"-->
         <!--style="@style/text_view_style"-->
@@ -35,4 +36,4 @@
         <!--android:layout_marginTop="211dp"-->
         <!--android:text="TextView" />-->
 
-</RelativeLayout>
+</LinearLayout>

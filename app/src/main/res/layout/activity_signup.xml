@@ -18,17 +18,19 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_user"
+                    android:src="@drawable/ic_person"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
                     android:layout_gravity="center"/>
 
@@ -51,12 +53,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_user"
+                    android:src="@drawable/ic_person"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
                     android:layout_gravity="center"/>
 
@@ -78,12 +81,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_phone"
+                    android:src="@drawable/ic_lock"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
                     android:layout_gravity="center"/>
 
@@ -107,12 +111,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_email"
+                    android:src="@drawable/ic_email"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
                     android:layout_gravity="center"/>
 
@@ -134,12 +139,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_password"
+                    android:src="@drawable/ic_lock"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
                     android:layout_gravity="center"/>
 
@@ -163,12 +169,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_password"
+                    android:src="@drawable/ic_lock"
                     android:layout_marginRight="@dimen/activity_vertical_margin"
                     android:layout_gravity="center"/>
 
@@ -193,12 +200,11 @@
 
             <Button
                 android:id="@+id/submit"
-                style="?android:textAppearanceSmall"
+                style="@style/btn_style"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/activity_vertical_marginTop"
                 android:text="@string/action_submit"
-                android:textStyle="bold" />
+                />
 
         </LinearLayout>
     </ScrollView>
