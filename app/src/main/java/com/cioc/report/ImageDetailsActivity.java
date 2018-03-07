@@ -1,12 +1,13 @@
 package com.cioc.report;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class ImageDetailsActivity extends AppCompatActivity{
+public class ImageDetailsActivity extends Activity {
 
     private ImageView imageView;
     private Button button;
