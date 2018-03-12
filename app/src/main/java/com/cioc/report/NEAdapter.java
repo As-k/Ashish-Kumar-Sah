@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class NEAdapter  extends RecyclerView.Adapter<NEAdapter.MyHolder> {
 
     Context context;
 //    ArrayList arrayList;
-    String from[] = {"categories", "vendor","date", "amount"};
+    String from[] = {"image","categories", "vendor","date", "amount"};
 
     public NEAdapter(Context context) {
         this.context = context;
@@ -46,10 +47,12 @@ public class NEAdapter  extends RecyclerView.Adapter<NEAdapter.MyHolder> {
     @Override
     public void onBindViewHolder(NEAdapter.MyHolder holder, int position) {
         HashMap hm = (HashMap) NewEditorActivity.arrayList.get(position);
-        String categories = (String) hm.get(from[0]);
-        String vendor = (String) hm.get(from[1]);
-        String date = (String) hm.get(from[2]);
+        int image = (Integer) hm.get(from[0]);
+        String categories = (String) hm.get(from[1]);
+        String vendor = (String) hm.get(from[2]);
+        String date = (String) hm.get(from[3]);
         String amount = (String) hm.get(from[3]);
+        holder.neaCategoryImage.setImageResource(image);
         holder.nea_tv_categories.setText(categories);
         holder.nea_tv_vendor.setText(vendor);
         holder.nea_tv_date.setText(date);
@@ -62,10 +65,12 @@ public class NEAdapter  extends RecyclerView.Adapter<NEAdapter.MyHolder> {
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder {
+        ImageView neaCategoryImage;
         TextView nea_tv_categories, nea_tv_vendor, nea_tv_date, nea_tv_amount;
 
         public MyHolder(View itemView) {
             super(itemView);
+            neaCategoryImage = itemView.findViewById(R.id.nea_categories_img);
             nea_tv_categories = itemView.findViewById(R.id.nea_tv_categories);
             nea_tv_vendor = itemView.findViewById(R.id.nea_tv_vendor);
             nea_tv_date = itemView.findViewById(R.id.nea_tv_date);

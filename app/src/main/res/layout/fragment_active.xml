@@ -16,7 +16,7 @@
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:fabSize="normal"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:tint="@color/project_color"/>
 
     <android.support.v7.widget.RecyclerView

@@ -21,25 +21,24 @@
                 android:layout_marginTop="@dimen/activity_vertical_marginTop"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingRight="20dp">
+                >
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     android:src="@drawable/ic_categories"
-                    android:layout_marginTop="6dp"
-                    />
+                    android:layout_marginLeft="@dimen/activity_vertical_marginTop"
+                    android:layout_marginRight="@dimen/fab_margin"/>
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
-                    <AutoCompleteTextView
+                    <Spinner
                         android:id="@+id/categories"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Categories"
                         android:inputType="textPersonName|textCapWords"/>
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -101,12 +100,13 @@
                 android:paddingRight="20dp">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     android:src="@drawable/ic_vendor"
                     android:layout_marginTop="6dp"
-                    />
+                    android:layout_marginLeft="@dimen/activity_vertical_marginTop"
+                    android:layout_marginRight="@dimen/fab_margin"/>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
@@ -131,11 +131,13 @@
                 android:paddingRight="20dp">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     android:src="@drawable/ic_date"
-                    android:layout_marginTop="6dp"/>
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:layout_marginLeft="@dimen/activity_vertical_marginTop"/>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
@@ -147,7 +149,8 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="Date"
-                        android:inputType="date" />
+                        android:inputType="date"
+                        />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
@@ -160,11 +163,13 @@
                 android:paddingRight="20dp">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     android:src="@drawable/ic_credit_card"
-                    android:layout_marginTop="6dp"/>
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="@dimen/activity_vertical_marginTop"
+                    android:layout_marginRight="@dimen/fab_margin"/>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"

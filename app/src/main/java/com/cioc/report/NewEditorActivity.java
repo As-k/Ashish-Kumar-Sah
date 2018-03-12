@@ -18,8 +18,10 @@ public class NewEditorActivity extends Activity {
     RecyclerView rv_new_editor;
     NEAdapter neAdapter;
     public static ArrayList arrayList;
-    String from[] = {"categories", "vendor","date", "amount"};
+    String from[] = {"image","categories", "vendor","date", "amount"};
+
     public static String categories, vendor, date,amount;
+    public static int image;
 
 
     @Override
@@ -31,16 +33,18 @@ public class NewEditorActivity extends Activity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
-            categories = bundle.getString("categories");
+            image = bundle.getInt("image");
+            categories = bundle.getString("item");
             vendor = bundle.getString("vendor");
             date = bundle.getString("date");
             amount = bundle.getString("amount");
 
             HashMap hm = new HashMap();
-            hm.put(from[0],categories);
-            hm.put(from[1],vendor);
-            hm.put(from[2],date);
-            hm.put(from[3],amount);
+            hm.put(from[0],image);
+            hm.put(from[1],categories);
+            hm.put(from[2],vendor);
+            hm.put(from[3],date);
+            hm.put(from[4],amount);
             arrayList.add(hm);
 //            TextView tv = findViewById(R.id.tv_new);
 //            tv.setText(categories+"\n"+vendor+"\n"+date+"\n"+amount);

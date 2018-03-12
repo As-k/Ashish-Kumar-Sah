@@ -20,6 +20,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -27,6 +28,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 
@@ -36,6 +39,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -52,9 +57,16 @@ public class DetailsActivity extends Activity {
     ImageButton uploadfile, camera, gallery;
     public static Bitmap bitmapUploadfile, bitmapCamera, bitmapGallery;
 
-    AutoCompleteTextView categories, vendor, amount;
+    Spinner categories;
+    AutoCompleteTextView vendor, amount;
     EditText date;
     int c_yr, c_month, c_day;
+    int category_images[] = {R.drawable.ic_select, R.drawable.ic_directions_bus, R.drawable.ic_hotel, R.drawable.ic_restaurant, R.drawable.ic_train, R.drawable.ic_travel};
+    String category_items[] = {"Select a Category", "Bus", "Hotel", "Restaurant", "Train", "Travel"};
+    SimpleAdapter simpleAdapter;
+    ArrayList arrayList;
+    int ids[] = {R.id.spinner_im, R.id.spinner_tv};
+    String from[] = {"key1","key2"};
 
     Button save_details;
 
@@ -67,6 +79,7 @@ public class DetailsActivity extends Activity {
         Integer[] images = {R.drawable.bag2, R.drawable.bag3, R.drawable.bag5};
         imagesList = new ArrayList(Arrays.asList(images));
 
+        arrayList = new ArrayList();
 //        if (bitmapCamera != null) {
 //            ByteArrayOutputStream bout = new ByteArrayOutputStream();
 //            bitmapCamera.compress(Bitmap.CompressFormat.JPEG,100,bout);
@@ -89,7 +102,16 @@ public class DetailsActivity extends Activity {
         mRecyclerView.scrollToPosition(position);
 
         findAllId();
-        save_details = findViewById(R.id.save_details);
+
+        for (int i=0; i<category_items.length; i++){
+            HashMap hm = new HashMap();
+            hm.put(from[0],category_images[i]);
+            hm.put(from[1],category_items[i]);
+            arrayList.add(hm);
+        }
+
+        simpleAdapter = new SimpleAdapter(this,arrayList, R.layout.layout_spinner_style, from,ids);
+        categories.setAdapter(simpleAdapter);
 
         Calendar c = Calendar.getInstance();
         c_yr = c.get(Calendar.YEAR);
@@ -110,6 +132,7 @@ public class DetailsActivity extends Activity {
         vendor = findViewById(R.id.vendor);
         amount = findViewById(R.id.amount);
         date = findViewById(R.id.date);
+        save_details = findViewById(R.id.save_details);
     }
 
     private void clickOnView(){
@@ -157,6 +180,7 @@ public class DetailsActivity extends Activity {
             }
         });
 
+//        date.setEnabled(false);
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,42 +199,46 @@ public class DetailsActivity extends Activity {
     }
 
     public void saveDetails(View v){
-        String category = categories.getText().toString().trim();
+        if (categories.getSelectedItemPosition() != 0){
+        int pos = categories.getSelectedItemPosition();
+            String item = category_items[pos];
+            int image = category_images[pos];
+
         String vendor_name = vendor.getText().toString().trim();
         String c_date = date.getText().toString().trim();
         String amount_price = amount.getText().toString().trim();
-        if (category.isEmpty()){
-            categories.setError("Error");
-            categories.requestFocus();
-        } else {
-            if (vendor_name.isEmpty()){
+//        if (category.equals("Select a Category")){
+//
+//        } else {
+            if (vendor_name.isEmpty()) {
                 vendor.setError("Error");
                 vendor.requestFocus();
             } else {
-                if (c_date.isEmpty()){
+                if (c_date.isEmpty()) {
                     date.setError("Error");
                     date.requestFocus();
                 } else {
-                    if (amount_price.isEmpty()){
+                    if (amount_price.isEmpty()) {
                         amount.setError("Error");
                         amount.requestFocus();
                     } else {
                         Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(DetailsActivity.this, NewEditorActivity.class);
-                        i.putExtra("categories",category);
-                        i.putExtra("vendor",vendor_name);
-                        i.putExtra("date",c_date);
-                        i.putExtra("amount",amount_price);
+                        i.putExtra("image", image);
+                        i.putExtra("item", item);
+                        i.putExtra("position", pos);
+                        i.putExtra("vendor", vendor_name);
+                        i.putExtra("date", c_date);
+                        i.putExtra("amount", amount_price);
                         startActivity(i);
                         finish();
                     }
                 }
             }
+        } else{
+            Toast.makeText(this, "Select a Category", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

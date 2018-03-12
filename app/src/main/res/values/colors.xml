@@ -11,6 +11,7 @@
 
     <color name="project_color">#ffffff</color>
     <color name="text_color">#000000</color>
+    <color name="text_style_color">#174075</color>
     <color name="btn_text_color">#ffffff</color>
 
 </resources>

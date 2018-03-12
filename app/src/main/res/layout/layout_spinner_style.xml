@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="left"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:id="@+id/spinner_im"
+        android:src="@drawable/ic_email"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        style="@style/text_view_style"
+        android:text="Dummy"
+        android:layout_width="match_parent"
+        android:id="@+id/spinner_tv"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:textAlignment="gravity"/>
+
+</LinearLayout>
