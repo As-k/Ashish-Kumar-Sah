@@ -200,16 +200,12 @@ public class DetailsActivity extends Activity {
 
     public void saveDetails(View v){
         if (categories.getSelectedItemPosition() != 0){
-        int pos = categories.getSelectedItemPosition();
+            int pos = categories.getSelectedItemPosition();
             String item = category_items[pos];
             int image = category_images[pos];
-
-        String vendor_name = vendor.getText().toString().trim();
-        String c_date = date.getText().toString().trim();
-        String amount_price = amount.getText().toString().trim();
-//        if (category.equals("Select a Category")){
-//
-//        } else {
+            String vendor_name = vendor.getText().toString().trim();
+            String c_date = date.getText().toString().trim();
+            String amount_price = amount.getText().toString().trim();
             if (vendor_name.isEmpty()) {
                 vendor.setError("Error");
                 vendor.requestFocus();
